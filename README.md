@@ -1,6 +1,11 @@
 # 3D Phase-Amplitude tools
 
-The code in this repository generates the results published in "Global phase-amplitude description of oscillatory dynamics via the parameterization method" [[Published Version]](https://aip.scitation.org/doi/abs/10.1063/5.0010149) [[arXiv]](https://arxiv.org/pdf/2004.03647.pdf)
+The code in this repository generates the results published in
+
+**"Global phase-amplitude description of oscillatory dynamics via the parameterization method"** [[PDF]](https://arxiv.org/pdf/2004.03647.pdf)
+
+at [[Chaos]](https://aip.scitation.org/doi/abs/10.1063/5.0010149)
+by A. Pérez-Cervera, Tere Seara and Gemma Huguet from Universitat Politècnica de Catalunya
 
 ## Theoretical background
 
@@ -42,8 +47,7 @@ There are extra parameters $b_1, b_2$ controlling the norm of $K_{10}$ and $K_{0
 
 ## What produces?
 
-By running the code you will generate three files "kx.dat", "ky.dat" and "kz.dat" each of them containing K in the respective coordinate.
-
-Each file will have as many rows as monomials and as many columns as points in which one has discretised $\theta$
+By running the code you will generate three files "kx.dat", "ky.dat" and "kz.dat". Each file will have as many rows as monomials are generated and as many columns as points used to discretise $\theta$. Monomials are stored following the sum
+$$\sum_{m=0}^{L} \sum_{\alpha=0}^{m} K_{\alpha, m-\alpha}(\theta)$$
 
 Note the code prints the maxError of each monomial (the error is computed via equation 48 in the manuscript)
