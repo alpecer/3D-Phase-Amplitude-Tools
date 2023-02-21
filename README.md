@@ -34,8 +34,8 @@ Our code is efficient as it relies on
 Our code considers a 3D neuron model (see Eq. 59) but it is easy to adapt for any system of interest. To that end, open 'obtainKs.py' and
 - Define its vectror field equations at "myVectorField" 
 - Define the jacobian matrix at "myJacobianMatrix"
-- introduce the period $T$
-- introduce an initial condition on the limit cycle $x_0$
+- introduce the period, $T$
+- introduce an initial condition on the limit cycle, $x_0$
 - write the automatic differentiation expression for your system (see Appendix B for more details)
 
 There are extra parameters $b_1, b_2$ controlling the norm of $K_{10}$ and $K_{01}$ (see Remark 3.2 in the manuscript for more details)
