@@ -31,7 +31,7 @@ Our code is efficient as it relies on
 
 ## How to use it?
 
-Our code considers a 3D neuron model (see Eq. 59) but it is easy to adapt for any system of interest. To that end, one just needs to
+Our code considers a 3D neuron model (see Eq. 59) but it is easy to adapt for any system of interest. To that end, open 'obtainKs.py' and
 - Define its vectror field equations at "myVectorField" 
 - Define the jacobian matrix at "myJacobianMatrix"
 - introduce the period $T$
