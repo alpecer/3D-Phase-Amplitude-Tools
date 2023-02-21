@@ -1,4 +1,4 @@
-from numpy import zeros, reshape, column_stack, exp, log, dot, where, pi, hstack, arange, fft, mean, around, linspace, array, genfromtxt, savetxt, append, sqrt, sort
+from numpy import zeros, reshape, column_stack, exp, log, dot, where, pi, hstack, arange, fft, mean, around, linspace, array, savetxt
 from numpy import linalg as LA
 from scipy.integrate import odeint
 
