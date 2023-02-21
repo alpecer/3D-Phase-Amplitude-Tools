@@ -27,19 +27,23 @@ $$K(\theta, \sigma) = \sum_{m=0}^{\infty} \sum_{\alpha=0}^{m} K_{\alpha, m-\alph
 
 Our code is efficient as it relies on
 - a diagonalisation of the linear system yielding the coeficcients $K_{\alpha, m-\alpha}(\theta)$ by means of the Floquet normal form
-- automatic differentiation techniques.
+- automatic differentiation techniques
 
 ## How to use it?
 
 Our code considers a 3D neuron model (see Eq. 59) but it is easy to adapt for any system of interest. To that end, one just needs to
-- Define its vectror field equations at 
-- Define the jacobian matrix at
-- introduce the period
-- introduce an initial condition at the limit cycle
-- write the automatic differentiation X for your system
+- Define its vectror field equations at "myVectorField" 
+- Define the jacobian matrix at "myJacobianMatrix"
+- introduce the period $T$
+- introduce an initial condition on the limit cycle $x_0$
+- write the automatic differentiation expression for your system (see Appendix B for more details)
 
 There are extra parameters $b_1, b_2$ controlling the norm of $K_{10}$ and $K_{01}$ (see Remark 3.2 in the manuscript for more details)
 
 ## What produces?
 
-By running the code you will generate three files X each of them containing its corresponding
+By running the code you will generate three files "kx.dat", "ky.dat" and "kz.dat" each of them containing K in the respective coordinate.
+
+Each file will have as many rows as monomials and as many columns as points in which one has discretised $\theta$
+
+Note the code prints the maxError of each monomial (the error is computed via equation 48 in the manuscript)
