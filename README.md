@@ -31,7 +31,7 @@ The code we next present, solves the above mentioned invariance equation for the
 $$K(\theta, \sigma) = \sum_{m=0}^{\infty} \sum_{\alpha=0}^{m} K_{\alpha, m-\alpha}(\theta) \sigma^{\alpha}_1 \sigma^{m-\alpha}_2$$
 
 Our code is efficient as it relies on
-- a diagonalisation of the linear system yielding the coeficcients $K_{\alpha, m-\alpha}(\theta)$ by means of the Floquet normal form
+- a diagonalisation of the linear system yielding the coeficcients $K_{\alpha, m-\alpha}(\theta)$ by means of the Floquet Normal Form
 - automatic differentiation techniques
 
 ## How to use it?
