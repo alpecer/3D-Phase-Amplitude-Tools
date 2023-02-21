@@ -1,4 +1,4 @@
-# Global Phase Amplitude Description of Oscillatory Dynamics via the Parameterization Method
+# 3D Phase-Amplitude tools
 
 The code in this repository generates the results published in "Global phase-amplitude description of oscillatory dynamics via the parameterization method" [[Published Version]](https://aip.scitation.org/doi/abs/10.1063/5.0010149) [[arXiv]](https://arxiv.org/pdf/2004.03647.pdf)
 
