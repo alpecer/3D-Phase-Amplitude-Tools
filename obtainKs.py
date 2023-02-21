@@ -58,12 +58,12 @@ def main():
     # Number of points in which the phase [0,1) is discretised. We recommend to choose a multiple of 2 
     N = 512*4;
     # Do you want to save your data?
-    write = False
+    write = True
     # Please define initial conditions on the LC and its period
     ic = array([-6.650686246876107433, 0.247447142321608970, 0.001756577816438608])
     period = 8.3955501314387355; 
     
-    # Max order of the polinomial expansion
+    # Max order (included) of the polinomial expansion
     maxOrder = 10
     # Norms for the K_10 and K_01 vectors
     b1 = 0.5; b2 = 0.5
@@ -94,9 +94,10 @@ def main():
         tauR_term = dif.sumConstantTerm(dif.autoExp(dif.sumConstantTerm(dX, 25, order), -1/10.5, order), 28, order)
         zExpr = dif.autoDiv(rInf_term, tauR_term, order)
 
-        dX, dY, dZ = ks.obtainHigherOrderKs(xExpr, yExpr, zExpr, dX, dY, dZ, order)
+        dX, dY, dZ = ks.obtainHigherOrderKs(xExpr, yExpr, zExpr, dX, dY, dZ, write, order)
         
     print('\tiniTime: %s\n\tendTime: %s' % (startTime, datetime.now()))
+
     
     # ------ Author's remark -----
     # If this code has been helpful, please be fair and cite

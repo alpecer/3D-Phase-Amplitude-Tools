@@ -1,4 +1,4 @@
-from numpy import zeros, reshape, exp, log, dot, where, pi, hstack, arange, fft, mean, around, linspace, array, genfromtxt, savetxt, append, sqrt, sort
+from numpy import zeros, reshape, column_stack, exp, log, dot, where, pi, hstack, arange, fft, mean, around, linspace, array, genfromtxt, savetxt, append, sqrt, sort
 from numpy import linalg as LA
 from scipy.integrate import odeint
 
@@ -31,24 +31,11 @@ def getLandas(floqExp, C, period):
     landa1 = log(floqExp[index[0]])/period; v1 = C[:,index[0]]; landa2 = log(floqExp[index[1]])/period; v2 = C[:,index[1]]    
     return v1, v2, landa1, landa2, C
 
-def saveData(data, fileName,  delimiter="\t"):
+def saveData(data, fileName, delimiter="\t"):
 
-    dataset = genfromtxt(fileName)
-    if len(dataset) == 0:
-        data = reshape(data, (data.shape[0],1))
-        try:
-            savetxt(fileName, data, delimiter='\t', fmt="%s")
-        except ValueError:
-            fp = open(fileName, 'w'); fp.close()
-            savetxt(fileName, data, delimiter='\t', fmt="%s")
-    else:
-        try:
-            dataset = reshape(dataset, (dataset.shape[0],dataset.shape[1]))
-        except ValueError:
-            dataset = reshape(dataset, (dataset.shape[0],1))
-        data = reshape(data, (data.shape[0],1)) 
-        result = append(dataset, data, 1)           
-        savetxt(fileName, result, delimiter="\t", fmt="%s")
+    with open(fileName, 'a') as f:
+        savetxt(f, column_stack(data[:]), fmt='%1.3f', delimiter="\t")
+    f.close()
 
 def createJacMatrixArray(x, y, z, myJacobianMatrix, N, args):
 
@@ -95,13 +82,13 @@ def integrateTheSystem(ic, args, period, b1, b2, N, maxOrder, write, myJacobianM
     k01_x, k01_y, k01_z = get_k1(sol[:,(nDim+1):], b2*v2, timeArray, landa2, period)
     dX[0, 1, :] = k01_x[:]; dY[0, 1, :] = k01_y[:]; dZ[0, 1, :] = k01_z[:]
     ckeckError_k1(k01_x, k01_y, k01_z, jacMatrix, landa2, period, N)
-    
+
     if write: 
-        fp = open('kx.dat', 'w'); fp.close(); fp = open('ky.dat', 'w'); fp.close(); fp = open('kz.dat', 'w'); fp.close()
+        fp = open('kx.dat', 'w'); fp.close(); fp = open('ky.dat', 'w'); fp.close(); fp = open('kz.dat', 'w'); fp.close()   
         saveData(x, 'kx.dat'); saveData(y, 'ky.dat'); saveData(z, 'kz.dat');  
         saveData(k10_x, 'kx.dat'); saveData(k10_y, 'ky.dat'); saveData(k10_z, 'kz.dat');
         saveData(k01_x, 'kx.dat'); saveData(k01_y, 'ky.dat'); saveData(k01_z, 'kz.dat');
-    
+
     return dX, dY, dZ
 
 def myVarSystem(z, t, *args):
@@ -167,7 +154,7 @@ def checkError_ks(kx, ky, kz, jacMatrix, factor, bx, by, bz, period, N):
     print('\t xError = %s \t yError = %s \t zError = %s' % (around(xError,14), around(yError,14), around(zError,14)))
 
 
-def obtainHigherOrderKs(xExpr, yExpr, zExpr, dX, dY, dZ, order):
+def obtainHigherOrderKs(xExpr, yExpr, zExpr, dX, dY, dZ, write, order):
     
     N = xExpr.shape[-1]
 
@@ -192,6 +179,8 @@ def obtainHigherOrderKs(xExpr, yExpr, zExpr, dX, dY, dZ, order):
         dX[order-i, i] = array(kX); dY[order-i, i] = array(kY); dZ[order-i, i] = array(kZ)
         print('Error K%s%s' % (order-i, i))
         checkError_ks(array(kX), array(kY), array(kZ), jacMatrix, factor, array(xExpr[order-i, i]), array(yExpr[order-i, i]), array(zExpr[order-i, i]), totalPeriod, N)
+        if write:
+            saveData(array(kX), 'kx.dat'); saveData(array(kY), 'ky.dat'); saveData(array(kZ), 'kz.dat');
     
     return dX, dY, dZ
 
