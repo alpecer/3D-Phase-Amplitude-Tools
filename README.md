@@ -5,7 +5,7 @@ The code in this repository generates the results published in
 **"Global phase-amplitude description of oscillatory dynamics via the parameterization method"** [[PDF]](https://arxiv.org/pdf/2004.03647.pdf)
 
 at [[Chaos]](https://aip.scitation.org/doi/abs/10.1063/5.0010149)
-by A. Pérez-Cervera, Tere Seara and Gemma Huguet from Universitat Politècnica de Catalunya
+by A. Pérez-Cervera, Tere M.Seara and Gemma Huguet from Universitat Politècnica de Catalunya
 
 ## Theoretical background
 
