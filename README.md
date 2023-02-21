@@ -1,6 +1,6 @@
 # Global Phase Amplitude Description of Oscillatory Dynamics via the Parameterization Method
 
-The code in this repository is based on the results published in "Global phase-amplitude description of oscillatory dynamics via the parameterization method" [[Published Version]](https://aip.scitation.org/doi/abs/10.1063/5.0010149) [[arXiv]](https://arxiv.org/pdf/2004.03647.pdf)
+The code in this repository generates the results published in "Global phase-amplitude description of oscillatory dynamics via the parameterization method" [[Published Version]](https://aip.scitation.org/doi/abs/10.1063/5.0010149) [[arXiv]](https://arxiv.org/pdf/2004.03647.pdf)
 
 ## Theoretical background
 
