@@ -1,6 +1,6 @@
 # 3D Phase-Amplitude tools
 
-The code in this repository generates the results published in
+Companion code to the paper
 
 **"Global phase-amplitude description of oscillatory dynamics via the parameterization method"** [[PDF]](https://arxiv.org/pdf/2004.03647.pdf)
 
