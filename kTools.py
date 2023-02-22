@@ -2,6 +2,16 @@ from numpy import zeros, reshape, column_stack, exp, log, dot, where, pi, hstack
 from numpy import linalg as LA
 from scipy.integrate import odeint
 
+"""
+@author: Alberto Pérez-Cervera, 2023
+
+Companion code to the paper
+
+Global phase-amplitude description of oscillatory dynamics via the parameterization method
+
+by A. Pérez-Cervera, Tere M.Seara and Gemma Huguet from Universitat Politècnica de Catalunya
+"""
+
 def get_Q(sol, C, floqExp, timeArray, period):
   
     variationalMatrix = zeros((nDim, nDim))

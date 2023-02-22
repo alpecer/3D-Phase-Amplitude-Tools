@@ -3,6 +3,16 @@ import autoDiffTools as dif
 from datetime import datetime
 from numpy import exp, array, zeros
 
+"""
+@author: Alberto Pérez-Cervera, 2023
+
+Companion code to the paper
+
+Global phase-amplitude description of oscillatory dynamics via the parameterization method
+
+by A. Pérez-Cervera, Tere M.Seara and Gemma Huguet from Universitat Politècnica de Catalunya
+"""
+
 def sigmoid(x, thetaX, aX):
 	return 1./(1+exp((x+thetaX)/aX))
 

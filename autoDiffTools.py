@@ -1,10 +1,16 @@
 from numpy import zeros, exp
 
-'''
-Automatic differentiation routines
-for more details, see Appendix B in
+"""
+@author: Alberto Pérez-Cervera, 2023
+
+Companion code to the paper
+
 Global phase-amplitude description of oscillatory dynamics via the parameterization method
-'''
+
+by A. Pérez-Cervera, Tere M.Seara and Gemma Huguet from Universitat Politècnica de Catalunya
+
+for more details on automatic differentiation, see Appendix B in that paper
+"""
 
 def autoSgmd(dX, a, b, maxOrder):
 
